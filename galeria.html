@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Merendero Dejando Huellas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="./logo_merendero.png" alt="Logo Merendero Dejando Huellas" class="h-14 md:h-20 w-auto object-contain transition-transform group-hover:scale-105">
+                
+                <div class="flex flex-col border-l-2 border-gray-200 pl-3">
+                    <span class="text-xs uppercase tracking-widest font-semibold text-gray-400 leading-none mb-1">Merendero</span>
+                    <span class="text-2xl md:text-3xl font-black tracking-tight text-gray-800 group-hover:text-green-600 transition-colors">
+                        Dejando huellas
+                    </span>
+                </div>
+            </a>
+            
+            <button id="menu-btn" class="block md:hidden text-gray-600 focus:outline-none p-2">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <nav id="menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 flex flex-col gap-4 text-center font-semibold md:static md:shadow-none md:p-0 md:flex md:flex-row md:gap-8 md:bg-transparent text-gray-600">
+                <a href="index.html" class="hover:text-green-600 transition-colors">Inicio</a>
+                <a href="como-ayudar.html" class="hover:text-green-600 transition-colors">Cómo Ayudar</a>
+                <a href="galeria.html" class="text-green-600 font-bold">Galería</a>
+                <a href="contacto.html" class="hover:text-green-600 transition-colors">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 md:py-20 w-full flex-grow">
+        
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+                Nuestra <span class="text-green-600">Galería de Fotos</span>
+            </h1>
+            <p class="text-lg text-gray-500 mt-2">Un recorrido en imágenes por los momentos compartidos, actividades y sonrisas de nuestros chicos.</p>
+        </div>
+
+        <div id="grilla-fotos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            </div>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 text-center py-8 text-xs md:text-sm w-full">
+        <p>&copy; 2026 Merendero Dejando Huellas. Desarrollado con fines comunitarios.</p>
+    </footer>
+
+    <script>
+        // Control del Menú Mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // =================================================================
+        // ⚙️ CONFIGURACIÓN AUTOMÁTICA DE TU GALERÍA
+        // Reemplazá estos dos datos con tu información real de GitHub:
+        // =================================================================
+        const USUARIO_GITHUB = "tu_usuario_de_github"; 
+        const REPOSITORIO_GITHUB = "nombre_de_tu_repositorio";
+
+        const contenedorGrilla = document.getElementById('grilla-fotos');
+
+        // Función base para construir las tarjetas visuales (Mantiene tu hermosa estética)
+        function crearTarjetaFoto(nombreArchivo) {
+            const tarjeta = document.createElement('div');
+            tarjeta.className = "bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group cursor-pointer";
+
+            const contenedorImg = document.createElement('div');
+            contenedorImg.className = "w-full h-64 overflow-hidden relative bg-gray-200";
+
+            const img = document.createElement('img');
+            img.src = `fotos/${nombreArchivo}`; // Busca la foto en tu carpeta local
+            img.alt = "Momento en el Merendero";
+            img.className = "w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110";
+
+            const overlay = document.createElement('div');
+            overlay.className = "absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300";
+
+            contenedorImg.appendChild(img);
+            contenedorImg.appendChild(overlay);
+            tarjeta.appendChild(contenedorImg);
+
+            return tarjeta;
+        }
+
+        // Función conectada a la API de GitHub para leer la carpeta dinámicamente
+        async function cargarGaleriaAutomatica() {
+            try {
+                // Le pedimos a GitHub el listado de archivos de la carpeta "fotos"
+                const respuesta = await fetch(`https://api.github.com/repos/${USUARIO_GITHUB}/${REPOSITORIO_GITHUB}/contents/fotos`);
+                
+                if (!respuesta.ok) {
+                    throw new Error("No se pudo conectar con la carpeta de imágenes");
+                }
+
+                const archivos = await respuesta.json();
+
+                // Filtramos el contenido: que sean archivos y que terminen en formato de imagen
+                const imagenes = archivos.filter(archivo => 
+                    archivo.type === 'file' && 
+                    /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
+                );
+
+                // Si la carpeta está vacía, mostramos un aviso prolijo
+                if (imagenes.length === 0) {
+                    contenedorGrilla.innerHTML = `
+                        <div class="col-span-full text-center py-12 text-gray-400">
+                            <span class="text-4xl block mb-2">📸</span>
+                            <p>Pronto subiremos las primeras fotos de las actividades.</p>
+                        </div>`;
+                    return;
+                }
+
+                // Limpiamos el contenedor e inyectamos las fotos encontradas
+                contenedorGrilla.innerHTML = "";
+                imagenes.forEach(foto => {
+                    contenedorGrilla.appendChild(crearTarjetaFoto(foto.name));
+                });
+
+            } catch (error) {
+                console.error("Error al cargar la galería:", error);
+                contenedorGrilla.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-red-500 font-medium">
+                        <p>No se pudieron cargar las fotos en este momento. Volvé a intentar más tarde.</p>
+                    </div>`;
+            }
+        }
+
+        // Ejecutamos la carga automática al abrir la página
+        cargarGaleriaAutomatica();
+    </script>
+</body>
+</html>
