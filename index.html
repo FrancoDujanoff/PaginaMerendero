@@ -92,10 +92,16 @@
         </div>
     </main>
 
+    <!-- 4. SECCIÓN NUESTRA HISTORIA (Bloque de texto + Imagen lado a lado) -->
+    <!-- 4. SECCIÓN NUESTRA HISTORIA (Diseño Editorial: Texto envolviendo a la imagen) -->
     <section class="bg-white py-16 md:py-24 px-4 relative z-20">
+        <!-- Contenedor único centrado y más angosto para mejorar la lectura -->
         <div class="max-w-4xl mx-auto">
             
-            <div class="bg-gray-100 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200/60 transition-transform hover:scale-[1.01] duration-300">
+            <!-- Bloque flotante gris unificado -->
+            <div class="bg-gray-100 rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200/60 transition-transform hover:scale-[1.005] duration-300">
+                
+                <!-- Título de la sección -->
                 <div class="flex items-center gap-3 mb-6">
                     <span class="text-2xl md:text-3xl">✨</span>
                     <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800">
@@ -103,17 +109,63 @@
                     </h2>
                 </div>
                 
-                <div class="space-y-6 text-gray-600 text-base md:text-lg leading-relaxed text-justify">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <!-- Contenedor del flujo de texto (flow-root asegura que el float no rompa los márgenes) -->
+                <div class="text-gray-600 text-base md:text-lg leading-relaxed text-justify flow-root">
+                    
+                    <!-- LA IMAGEN FLOTANTE: En celu va arriba completa, en PC se vuelve un cuadrado a la derecha que el texto envuelve -->
+                    <div class="w-full md:w-72 h-64 md:h-72 mb-6 md:mb-4 md:ml-6 md:float-right rounded-2xl overflow-hidden shadow-md border border-gray-200/60">
+                        <img src="./foto_principal.png" 
+                             alt="María Lemos y colaboradores en el Merendero Dejando Huellas" 
+                             class="w-full h-full object-cover object-center">
+                    </div>
+
+                    <!-- Párrafos de la historia -->
+                    <p class="mb-6">
+                        En un barrio con muchas necesidades, en 2021 nace una idea solidaria. María Lemos crea el Merendero Dejando Huellas. Un espacio pensado para acompañar a los chicos del barrio. Con el tiempo, cada vez más niños comenzaron a acercarse. Lo que empezó como una pequeña ayuda fue creciendo día a día.
                     </p>
-                    <p>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit ut aliquam purus sit amet luctus venenatis lectus magna.
+                    
+                    <p class="mb-6">
+                        Hoy el merendero acompaña a más de 340 niños y más de 140 familias. Y muchos más esperan poder sumarse.
                     </p>
-                    <p>
-                        Arcu ac tortor dignissim convallis aenean et tortor at. Mauris nunc congue nisi vitae suscipit tellus mauris a diam. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Sed vulputate mi sit amet mauris commodo quis imperdiet.
+                    
+                    <p class="mb-2 font-bold text-gray-700">
+                        Nuestros pilares son:
                     </p>
+                    
+                    <ul class="list-disc pl-5 mb-6 space-y-1.5">
+                        <li>Construcción de relaciones.</li>
+                        <li>Alimentación.</li>
+                        <li>Educación.</li>
+                        <li>Salud.</li>
+                        <li>Integración Social.</li>
+                    </ul>
+                    
+                    <p class="mb-6">
+                        <strong>El espacio físico:</strong> El merendero funciona en la casa de María. Gracias a las donaciones de muchas personas, organizaciones y empresas se logró construir un salón de 50 m², dos baños y un antebaño. También se remodeló la cocina y se restauraron por completo los artefactos.
+                    </p>
+
+                    <p class="mb-6">
+                        <strong>Alimentación:</strong> Todo comenzó con una merienda sencilla para pocos niños, solo 2 veces a la semana. Hoy, el panorama es muy diferente: el merendero ofrece 4 meriendas semanales y almuerzos nutritivos para 160 niños. Quienes no almuerzan en el lugar, pasan a retirar su vianda. Cada plato de comida es contención, cuidado y una oportunidad para crecer.
+                    </p>
+
+                    <p class="mb-6">
+                        <strong>Educación:</strong> Creemos que la educación abre puertas. Por eso, entregamos útiles escolares a más de 340 niños durante tres años consecutivos y comenzamos con clases de apoyo escolar en Lengua, Matemática e Inglés. Acompañar su aprendizaje es apostar a su futuro.
+                    </p>
+
+                    <p class="mb-6">
+                        <strong>Deporte:</strong> El deporte es una herramienta fundamental que ayuda a los chicos a crecer con valores y alejarse de situaciones de riesgo como la violencia o las adicciones. Por ello, hoy funciona una escuelita de fútbol con entrenamientos y participación en campeonatos, aunque todavía necesitamos mejorar la cancha, conseguir profesores de educación física y más equipamiento.
+                    </p>
+
+                    <p class="mb-6">
+                        <strong>Salud:</strong> La salud también es una prioridad. Como muchos niños no tienen acceso a servicios médicos adecuados, trabajamos constantemente para acercar profesionales de la salud al merendero que puedan brindarles atención y control.
+                    </p>
+
+                    <p class="mb-6">
+                        <strong>Acompañamiento familiar:</strong> Acompañar a los niños también significa acompañar a sus familias. Muchas madres atraviesan situaciones muy difíciles; por eso, estamos gestionando becas de estudios y becas para talleres de oficio, buscando brindar una oportunidad real de igualdad y salida laboral tanto para los jóvenes como para los adultos.
+                    </p>
+                    
                 </div>
+                
             </div>
             
         </div>
