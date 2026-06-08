@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merendero Dejando Huellas - Sitio Oficial</title>
+    <title>Dejando Huellas - Sitio Oficial</title>
     <link rel="icon" type="image/png" href="./logo_merendero.png">
     
     <!-- Importamos Tailwind CSS -->
@@ -93,12 +93,8 @@
             
             <!-- CONTENEDOR DEL VIDEO PRINCIPAL -->
             <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-gray-200/60 bg-black aspect-video mb-16" data-aos="zoom-in" data-aos-duration="1000">
-                <!-- Reemplazá 'tu_video.mp4' por el nombre del video que tengas en tu carpeta -->
-                <!-- Si subís el video a YouTube, acá adentro pondrías el <iframe> de YouTube en lugar de esta etiqueta <video> -->
-                <video controls class="w-full h-full object-cover" poster="./foto_principal.png">
-                    <source src="./tu_video.mp4" type="video/mp4">
-                    Tu navegador no soporta la reproducción de videos.
-                </video>
+                <iframe src="https://drive.google.com/file/d/1RmuLf1WIId0v39CC5iYBC8-f-UFtYtRP/preview" class="w-full h-full" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+
             </div>
 
             <!-- TÍTULO DE LOS PILARES -->
@@ -109,61 +105,67 @@
                 <p class="text-gray-500 mt-2">Todo lo que logramos día a día se sostiene sobre estas bases fundamentales.</p>
             </div>
 
-            <!-- GRILLA DE PILARES (3 columnas en PC, 1 en celular) -->
+            <!-- GRILLA DE PILARES (Habilitada para clics) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Pilar 1: Alimentación -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl mb-4">🍲</div>
+                <div onclick="abrirModal('alimentacion')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🍲</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Alimentación</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Ofrecemos 4 meriendas semanales y almuerzos nutritivos para 160 niños. Quienes no almuerzan en el lugar, pasan a retirar su vianda.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
                 <!-- Pilar 2: Educación -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl mb-4">📚</div>
+                <div onclick="abrirModal('educacion')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">📚</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Educación</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Entregamos útiles escolares a más de 340 niños y brindamos clases de apoyo escolar en Lengua, Matemática e Inglés.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
                 <!-- Pilar 3: Deporte -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl mb-4">⚽</div>
+                <div onclick="abrirModal('deporte')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">⚽</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Deporte</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Funciona una escuelita de fútbol con entrenamientos y campeonatos para alejar a los chicos de situaciones de riesgo y fomentar valores.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
                 <!-- Pilar 4: Salud -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl mb-4">🩺</div>
+                <div onclick="abrirModal('salud')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🩺</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Salud</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Trabajamos para acercar profesionales de la salud al merendero para brindar atención y controles médicos a quienes no tienen acceso.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
                 <!-- Pilar 5: Integración Familiar -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="500">
-                    <div class="text-4xl mb-4">👨‍👩‍👧‍👦</div>
+                <div onclick="abrirModal('acompanamiento')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">👨‍👩‍👧‍👦</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Acompañamiento</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Acompañamos a las familias gestionando becas de estudio y talleres de oficio para brindar oportunidades reales de salida laboral.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
                 <!-- Pilar 6: Espacio Físico -->
-                <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300" data-aos="fade-up" data-aos-delay="600">
-                    <div class="text-4xl mb-4">🏠</div>
+                <div onclick="abrirModal('espacio')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🏠</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Espacio Físico</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
                         Funcionamos en la casa de María. Con ayuda logramos construir un salón de 50 m², baños y una cocina completamente remodelada.
                     </p>
+                    <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
             </div>
@@ -252,7 +254,7 @@
                         <div class="bg-gray-50 p-4 rounded-2xl shadow-sm border border-gray-200/40 flex justify-between items-center gap-4">
                             <div>
                                 <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Coordinador</p>
-                                <p class="text-lg font-bold text-gray-700 leading-tight">Alberto</p>
+                                <p class="text-lg font-bold text-gray-700 leading-tight">Alberto Guirao</p>
                                 <a href="tel:+5491123456789" class="text-sm text-emerald-600 hover:text-emerald-700 font-medium hover:underline block mt-1">+54 9 261 653 3807</a>
                             </div>
                             <a href="https://wa.me/5492616533807" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-md flex-shrink-0">WhatsApp</a>
@@ -283,7 +285,6 @@
                     <div class="pl-2 text-gray-600 leading-relaxed">
                         <p class="font-semibold text-gray-700"> Barrio 24 de Agosto Manzana E, Casa 20A</p>
                         <p class="text-sm">Rodeo del Medio, Mendoza, Argentina</p>
-                        <p class="text-xs text-gray-400 mt-1">Meriendas lunes y miércoles. Almuerzo los sábados.</p>
                     </div>
                 </div>
             </div>
@@ -295,23 +296,38 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
+
+    <div id="modal-pilares" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 md:p-8">
+        
+        <div id="modal-backdrop" class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity"></div>
+        
+        <div id="modal-content-box" class="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl p-8 md:p-12 transform scale-95 opacity-0 transition-all duration-300">
+            
+            <button onclick="cerrarModal()" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div id="modal-icono" class="text-5xl md:text-6xl mb-6"></div>
+            <h3 id="modal-titulo" class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 border-b border-gray-100 pb-4"></h3>
+            
+            <div id="modal-texto" class="text-gray-600 text-base md:text-lg leading-relaxed space-y-5 text-justify"></div>
+        </div>
+    </div>
+
     <footer class="bg-gray-900 text-gray-400 text-center py-8 text-xs md:text-sm">
-        <p>&copy; 2026 Merendero Dejando Huellas. Desarrollado con fines comunitarios.</p>
+        <p>© 2026 Merendero Dejando Huellas. Desarrollado con fines comunitarios.</p>
     </footer>
 
-    <!-- LIBRERÍA DE ANIMACIONES (AOS) - JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- SCRIPTS DE FUNCIONALIDAD -->
     <script>
-        // Iniciar Animaciones
+        // 1. INICIAR ANIMACIONES (AOS)
         AOS.init({
-            once: false, // AHORA ES FALSE: La animación se repite cada vez que scrolleas
+            once: false, 
             offset: 100, 
         });
 
-        // Lógica del menú hamburguesa
+        // 2. LÓGICA DEL MENÚ HAMBURGUESA
         const menuBtn = document.getElementById('menu-btn');
         const menu = document.getElementById('menu');
 
@@ -324,13 +340,10 @@
             });
         });
 
-        // Carrusel Dinámico
-        const empresas = [
-            "empresa1.png",
-            "empresa2.png",
-            "empresa3.png"
-        ];
+        // 3. CARRUSEL DINÁMICO DE EMPRESAS
+        const empresas = ["empresa1.png", "empresa2.png", "empresa3.png"];
         const carrusel = document.getElementById('carrusel-logos');
+        
         function crearLogoHTML(nombreArchivo) {
             const img = document.createElement('img');
             img.src = `logos/${nombreArchivo}`; 
@@ -338,15 +351,116 @@
             img.className = "h-14 md:h-20 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0";
             return img;
         }
-        let baseLista = [...empresas];
-        while (baseLista.length < 8) {
-            baseLista = [...baseLista, ...empresas];
+        
+        if(carrusel) {
+            let baseLista = [...empresas];
+            while (baseLista.length < 8) { baseLista = [...baseLista, ...empresas]; }
+            const listaCompleta = [...baseLista, ...baseLista];
+            listaCompleta.forEach(empresa => {
+                carrusel.appendChild(crearLogoHTML(empresa));
+            });
         }
-        const listaCompleta = [...baseLista, ...baseLista];
-        listaCompleta.forEach(empresa => {
-            carrusel.appendChild(crearLogoHTML(empresa));
-        });
+
+        // 4. LÓGICA DEL MODAL DE LOS PILARES
+        const datosPilares = {
+            'alimentacion': {
+                icono: '🍲',
+                titulo: 'Proyecto Alimentación',
+                texto: `
+                    <p>Se ofrecían dos meriendas semanales (lunes y miércoles) compuestas por té y tortitas, y un almuerzo los sábados (menudo de pollo), para unos 35 niños.</p>
+                    <p>Hoy en dia ofrecemos 4 meriendas semanales, todas con leche (arroz con leche, chocolatada con tortitas, avena con leche, etc.).</p>
+                    <p>Almuerzos los sábados con carne de calidad (vacuna, pollo o cerdo, 10 kg), acompañada por fideos, lentejas, arroz o sémola.</p>
+                `
+            },
+            'educacion': {
+                icono: '📚',
+                titulo: 'Apoyo Educativo',
+                texto: `
+                    <p class="font-bold text-gray-800">Creemos fervientemente que la educación es la única herramienta de movilidad social real.</p>
+                    <p>Más de 250 niños de nivel inicial, primario y secundario recibieron útiles escolares al inicio del ciclo lectivo 2025 y 2026</p>
+                    <p>Equipo de tres docentes que realizan apoyo escolar a nuestros niños y jóvenes entre 6 y 21 años.</p>
+                `
+            },
+            'deporte': {
+                icono: '⚽',
+                titulo: 'Escuelita de Deporte',
+                texto: `
+                    <p class="font-bold text-gray-800">El deporte se considera fundamental para fomentar valores y mantener a los niños alejados de situaciones de riesgo como las adicciones.</p>
+                    <p>Actualmente contamos con una escuelita de futbol con dos profesores y tres dias de entrenamiento.</p>
+                    <p>Nos queda pendiente:</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3">
+                        <li>Equipamiento: camisetas, botines, medias, camperas, pantalones.</li>
+                        <li>Mejorar la cancha (actualmente de tierra y piedras).</li>
+                        <li>Instalar arcos adecuados.</li>
+                        <li>Incorporar arboleda y enramado para sombra.</li>
+                    </ul>
+                `
+            },
+            'salud': {
+                icono: '🩺',
+                titulo: 'Operativos de Salud',
+                texto: `
+                    <p class="font-bold text-gray-800">Prevenir es curar: acercamos la salud a quienes más la necesitan.</p>
+                    <p>Área en permanente desarrollo.  Equipo de atención odontológica. Se cubren urgencias puntuales que son derivados al Notti, se asiste en la compra de medicación y traslados.</p>
+                    <p>El centro de salud más cercano se encuentra a dos barrios de distancia. Muchas familias carecen de recursos para trasladar a sus hijos al Hospital Notti por ello nos encargamos de lograr que sus padres los lleven cubriendo los gastos necesarios de traslado, alimentación mientras están internados los niños, medicación y estudios necesarios.</p>
+                    <p>Nuestro objetivo es aprovechar el salon construido para recibir profesionales de la salud </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3">
+                        <li>Médicos.</li>
+                        <li>Odontólogos.</li>
+                        <li>Psicólogos.</li>
+                    </ul>
+                `
+            },
+            'acompanamiento': {
+                icono: '👨‍👩‍👧‍👦',
+                titulo: 'Desarrollo Familiar',
+                texto: `
+                    <p class="font-bold text-gray-800">No podemos ayudar a un niño sin brindarle herramientas a su familia para salir adelante.</p>
+                    <p>Grave falta de participación familiar que fue mejorando con el transcurrir del tiempo gracias a las entrevistas familiares que se implementaron.  La mayoría de los hogares están encabezados por madres solas atravesando situaciones de vulnerabilidad emocional y económica.</p>
+                    <p> Se gestionó con Diego Talquenca, docente del IUCE que sus estudiantes del ingreso elaboren proyectos vinculados a los desafíos ONG, elaborados a partir de los seis ejes del merendero y de esta manera acercar a sus estudiantes con sus proyectos al territorio. Año 2024, 2025 y 2026.</p>                `
+            },
+            'espacio': {
+                icono: '🏠',
+                titulo: 'Nuestro Espacio Físico',
+                texto: `
+                    <p class="font-bold text-gray-800">El hogar donde la magia ocurre, construido bloque a bloque gracias a las donaciones.</p>
+                    <p>La vivienda de la Sra. María, sede del merendero, era muy precaria. Contaba en el mismo ambiente con una cocina, dormitorio, un inodoro rodeado de cortinas y un pequeño patio.</p>
+                    <p>Ante la imposibilidad de contar con un terreno municipal colindante, y con autorización de la Sra. María, se construyó un salón de 50 m² con dos baños en su patio.</p>
+                `
+            }
+        };
+
+        const modalPilares = document.getElementById('modal-pilares');
+        const modalContentBox = document.getElementById('modal-content-box');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+
+        function abrirModal(id) {
+            const data = datosPilares[id];
+            
+            document.getElementById('modal-icono').innerText = data.icono;
+            document.getElementById('modal-titulo').innerText = data.titulo;
+            document.getElementById('modal-texto').innerHTML = data.texto;
+
+            modalPilares.classList.remove('hidden');
+            
+            setTimeout(() => {
+                modalContentBox.classList.remove('scale-95', 'opacity-0');
+                modalContentBox.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarModal() {
+            modalContentBox.classList.remove('scale-100', 'opacity-100');
+            modalContentBox.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modalPilares.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        modalBackdrop.addEventListener('click', cerrarModal);
     </script>
 </body>
 </html>
-
