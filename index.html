@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<!-- Volvemos al scroll natural y suave -->
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dejando Huellas - Sitio Oficial</title>
     <link rel="icon" type="image/png" href="./logo_merendero.png">
     
-    <!-- Importamos Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- LIBRERÍA DE ANIMACIONES (AOS) - CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script>
@@ -31,9 +28,8 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased pt-20">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased pt-20 overflow-x-hidden">
 
-    <!-- BARRA SUPERIOR (MANTIENE SU LUGAR ARRIBA Y SOLO CON GALERÍA) -->
     <header class="absolute top-0 left-0 w-full bg-white shadow-md z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 md:py-5 flex justify-between items-center">
             
@@ -57,10 +53,8 @@
         </div>
     </header>
 
-    <!-- SECCIÓN 1: INICIO -->
     <div id="inicio" class="scroll-mt-24">
 
-        <!-- MAIN / HERO COLLAGE -->
         <main class="relative bg-gray-100 overflow-hidden min-h-[75vh] flex items-center">
             <img src="./Diseño sin título.png" alt="Collage de fotos Merendero Dejando Huellas" class="absolute inset-0 w-full h-full object-cover object-center opacity-90">
             <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 md:py-24 w-full">
@@ -76,11 +70,9 @@
         </main>
     </div>
 
-   <!-- SECCIÓN 2: HISTORIA (Con Video y Pilares en Tarjetas) -->
-    <section id="historia" class="bg-gray-50 py-16 md:py-24 px-4 relative z-20 scroll-mt-20">
+   <section id="historia" class="bg-gray-50 py-16 md:py-24 px-4 relative z-20 scroll-mt-20">
         <div class="max-w-6xl mx-auto">
             
-            <!-- Título de la sección -->
             <div class="flex justify-center items-center gap-3 mb-10" data-aos="fade-down" data-aos-duration="800">
                 <span class="text-2xl md:text-3xl">✨</span>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-gray-800 tracking-tight">
@@ -88,12 +80,10 @@
                 </h2>
             </div>
             
-            <!-- CONTENEDOR DEL VIDEO PRINCIPAL -->
             <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-gray-200/60 bg-black aspect-video mb-16" data-aos="zoom-in" data-aos-duration="1000">
                 <iframe src="https://drive.google.com/file/d/1RmuLf1WIId0v39CC5iYBC8-f-UFtYtRP/preview" class="w-full h-full" allow="autoplay" frameborder="0" allowfullscreen></iframe>
             </div>
 
-            <!-- TÍTULO DE LOS PILARES -->
             <div class="text-center mb-10" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl font-bold text-gray-800">
                     Los pilares de trabajo
@@ -101,10 +91,8 @@
                 <p class="text-gray-500 mt-2">Todo lo que logramos día a día se sostiene sobre estas bases fundamentales.</p>
             </div>
 
-            <!-- GRILLA DE PILARES (Habilitada para clics) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <!-- Pilar 1: Alimentación -->
                 <div onclick="abrirModal('alimentacion')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="100">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🍲</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Alimentación</h4>
@@ -114,7 +102,6 @@
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
-                <!-- Pilar 2: Educación -->
                 <div onclick="abrirModal('educacion')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">📚</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Educación</h4>
@@ -124,7 +111,6 @@
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
-                <!-- Pilar 3: Deporte -->
                 <div onclick="abrirModal('deporte')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">⚽</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Deporte</h4>
@@ -134,17 +120,15 @@
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
-                <!-- Pilar 4: Salud -->
                 <div onclick="abrirModal('salud')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="400">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🩺</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Salud</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Trabajamos para acercar profesionales de la salud al merendero para brindar atención y controles médicos a quienes no tienen acceso.
+                        Trabajamos para acergar profesionales de la salud al merendero para brindar atención y controles médicos a quienes no tienen acceso.
                     </p>
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
-                <!-- Pilar 5: Integración Familiar -->
                 <div onclick="abrirModal('acompanamiento')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="500">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">👨‍👩‍👧‍👦</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Acompañamiento</h4>
@@ -154,7 +138,6 @@
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
 
-                <!-- Pilar 6: Espacio Físico -->
                 <div onclick="abrirModal('espacio')" class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group" data-aos="fade-up" data-aos-delay="600">
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">🏠</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Espacio Físico</h4>
@@ -168,7 +151,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 3: CÓMO AYUDAR -->
     <section id="como-ayudar" class="bg-white max-w-6xl mx-auto px-4 py-16 md:py-24 w-full scroll-mt-20">
         <div class="text-center mb-16" data-aos="zoom-in" data-aos-duration="800">
             <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -181,7 +163,6 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             
-            <!-- TARJETA 1 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="100">
                 <div>
                     <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-2xl mb-6">❤️</div>
@@ -197,7 +178,6 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="300">
                 <div>
                     <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🛒</div>
@@ -208,12 +188,11 @@
                     <ul class="space-y-3 pl-1">
                         <li class="flex items-center gap-3 text-gray-700 font-medium text-sm md:text-base"><span class="text-green-500 font-bold">✓</span> Leche en polvo o larga vida</li>
                         <li class="flex items-center gap-3 text-gray-700 font-medium text-sm md:text-base"><span class="text-green-500 font-bold">✓</span> Azúcar, harina y fideos</li>
-                        <li class="flex items-center gap-3 text-gray-700 font-medium text-sm md:text-base"><span class="text-green-500 font-bold">✓</span> Utiles escolares</li>
+                        <li class="flex items-center gap-3 text-gray-700 font-medium text-sm md:text-base"><span class="text-green-500 font-bold">✓</span> Útiles escolares</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- TARJETA 3 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="500">
                 <div>
                     <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🤝</div>
@@ -232,7 +211,6 @@
         </div>
     </section>
 
-    <!-- SECCIÓN 4: CONTACTO -->
     <section id="contacto" class="bg-gray-50 max-w-6xl mx-auto px-4 py-16 md:py-24 w-full scroll-mt-20">
         <div class="text-center mb-16" data-aos="fade-down" data-aos-duration="800">
             <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -243,7 +221,6 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
             
             <div class="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-200/60 space-y-8" data-aos="fade-right" data-aos-duration="1000">
-                <!-- Teléfonos -->
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2 mb-4">📞 Teléfonos de Contacto</h3>
                     <div class="space-y-3 pl-2">
@@ -258,24 +235,22 @@
                     </div>
                 </div>
 
-                <!-- Redes Sociales -->
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2 mb-4">📸 Redes Sociales</h3>
                     <div class="pl-2">
-                        <a href="https://instagram.com/merenderodejandohuellas1" target="_blank" class="flex items-center justify-between bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white p-4 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
-                            <div class="flex items-center gap-3">
-                                <span class="text-2xl">📸</span>
+                        <a href="https://instagram.com/merenderodejandohuellas1" target="_blank" class="flex items-center justify-between bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white p-4 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 break-all">
+                            <div class="flex items-center gap-3 overflow-hidden">
+                                <span class="text-2xl flex-shrink-0">📸</span>
                                 <div>
                                     <p class="font-bold text-lg">Seguinos en Instagram</p>
                                     <p class="text-xs text-white/80">@merenderodejandohuellas1</p>
                                 </div>
                             </div>
-                            <span class="text-xl font-bold">➡️</span>
+                            <span class="text-xl font-bold flex-shrink-0 ml-2">➡️</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Dirección -->
                 <div>
                     <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2 mb-3">📍 Nuestra Ubicación</h3>
                     <div class="pl-2 text-gray-600 leading-relaxed">
@@ -285,21 +260,12 @@
                 </div>
             </div>
 
-            <!-- Mapa -->
             <div class="w-full h-full min-h-[350px] md:min-h-[500px] relative" data-aos="fade-left" data-aos-duration="1000">
-                <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d1520.7916221589503!2d-68.69608078231683!3d-32.98760845544348!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDU5JzE2LjEiUyA2OMKwNDEnNDQuNCJX!5e1!3m2!1ses!2sar!4v1781103956935!5m2!1ses!2sar" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" 
-                class="w-full h-full min-h-[350px] md:min-h-[500px] rounded-3xl shadow-xl border border-gray-200/60">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3041.576624313691!2d-68.69824602432857!3d-32.9878005735762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDU5JzE2LjEiUyA2OMKwNDEnNDQuNCJX!5e1!3m2!1ses!2sar!4v1780510762736!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full min-h-[350px] md:min-h-[500px] rounded-3xl shadow-xl border border-gray-200/60"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- MODAL DE PILARES (CON CORRECCIÓN DE ANCHO PARA MOBILE) -->
     <div id="modal-pilares" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-3 md:p-8">
         <div id="modal-backdrop" class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity"></div>
         
@@ -315,7 +281,7 @@
         </div>
     </div>
 
-    <footer class="bg-gray-900 text-gray-400 text-center py-8 text-xs md:text-sm">
+    <footer class="bg-gray-900 text-gray-400 text-center py-8 text-xs md:text-sm w-full">
         <p>© 2026 Merendero Dejando Huellas. Desarrollado con fines comunitarios.</p>
     </footer>
 
@@ -328,28 +294,7 @@
             offset: 100, 
         });
 
-        // 2. CARRUSEL DINÁMICO DE EMPRESAS
-        const empresas = ["empresa1.png", "empresa2.png", "empresa3.png"];
-        const carrusel = document.getElementById('carrusel-logos');
-        
-        function crearLogoHTML(nombreArchivo) {
-            const img = document.createElement('img');
-            img.src = `logos/${nombreArchivo}`; 
-            img.alt = "Empresa Colaboradora";
-            img.className = "h-14 md:h-20 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 flex-shrink-0";
-            return img;
-        }
-        
-        if(carrusel) {
-            let baseLista = [...empresas];
-            while (baseLista.length < 8) { baseLista = [...baseLista, ...empresas]; }
-            const listaCompleta = [...baseLista, ...baseLista];
-            listaCompleta.forEach(empresa => {
-                carrusel.appendChild(crearLogoHTML(empresa));
-            });
-        }
-
-        // 3. LÓGICA DEL MODAL DE LOS PILARES
+        // 2. LÓGICA DEL MODAL DE LOS PILARES
         const datosPilares = {
             'alimentacion': {
                 icono: '🍲',
