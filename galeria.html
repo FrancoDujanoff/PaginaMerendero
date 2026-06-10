@@ -7,35 +7,32 @@
     <link rel="icon" type="image/png" href="./logo_merendero.png">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between pt-24">
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="absolute top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 md:py-5 flex justify-between items-center">
             
-            <a href="index.html" class="flex items-center gap-3 group">
-                <img src="./logo_merendero.png" alt="Logo Merendero Dejando Huellas" class="h-14 md:h-20 w-auto object-contain transition-transform group-hover:scale-105">
+            <a href="index.html" class="flex items-center gap-4 group">
+                <img src="./logo_merendero.png" alt="Logo Merendero Dejando Huellas" class="h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105">
                 
-                <div class="flex flex-col border-l-2 border-gray-200 pl-3">
-                    <span class="text-xs uppercase tracking-widest font-semibold text-gray-400 leading-none mb-1">Comunidad</span>
-                    <span class="text-2xl md:text-3xl font-black tracking-tight text-gray-800 group-hover:text-green-600 transition-colors">
+                <div class="flex flex-col border-l-[3px] border-gray-200 pl-4">
+                    <span class="text-sm md:text-base uppercase tracking-widest font-bold text-gray-400 leading-none mb-1">SOMOS</span>
+                    <span class="text-2xl md:text-4xl font-black tracking-tight text-gray-800 group-hover:text-green-600 transition-colors">
                         Dejando huellas
                     </span>
                 </div>
             </a>
             
-            <button id="menu-btn" class="block md:hidden text-gray-600 focus:outline-none p-2">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <div>
+                <a href="index.html" class="bg-emerald-600 text-white font-bold px-6 py-2.5 md:px-8 md:py-3 rounded-full hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-base md:text-xl inline-block">
+                    Inicio
+                </a>
+            </div>
 
-            <nav id="menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 flex flex-col gap-4 text-center font-semibold md:static md:shadow-none md:p-0 md:flex md:flex-row md:gap-8 md:bg-transparent text-gray-600">
-                <a href="index.html" class="hover:text-green-600 transition-colors">Inicio</a>
-            </nav>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-12 md:py-20 w-full flex-grow">
+    <main class="max-w-6xl mx-auto px-4 py-12 md:py-20 w-full flex-grow mt-12 md:mt-16">
         
         <div class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
@@ -49,43 +46,55 @@
 
     </main>
 
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 md:p-6 select-none">
+        
+        <div id="lightbox-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-sm transition-opacity"></div>
+        
+        <button onclick="cerrarLightbox()" class="absolute top-4 right-4 z-[110] text-white/80 hover:text-white bg-black/40 hover:bg-black/60 rounded-full p-2.5 transition-all focus:outline-none border border-white/10 shadow-lg">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        
+        <div class="relative max-w-5xl max-h-[85vh] z-10 transform scale-95 opacity-0 transition-all duration-300" id="lightbox-box">
+            <img id="lightbox-img" src="" alt="Foto expandida" class="max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl border border-white/10">
+        </div>
+    </div>
+
     <footer class="bg-gray-900 text-gray-400 text-center py-8 text-xs md:text-sm w-full">
         <p>&copy; 2026 Merendero Dejando Huellas. Desarrollado con fines comunitarios.</p>
     </footer>
 
     <script>
-        // Control del Menú Mobile
-        const menuBtn = document.getElementById('menu-btn');
-        const menu = document.getElementById('menu');
-
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // =================================================================
-        // ⚙️ CONFIGURACIÓN AUTOMÁTICA DE TU GALERÍA
-        // Reemplazá estos dos datos con tu información real de GitHub:
-        // =================================================================
+        // CONFIGURACIÓN AUTOMÁTICA DE TU GALERÍA
         const USUARIO_GITHUB = "FrancoDujanoff"; 
         const REPOSITORIO_GITHUB = "PaginaMerendero";
 
         const contenedorGrilla = document.getElementById('grilla-fotos');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxBox = document.getElementById('lightbox-box');
+        const lightboxBackdrop = document.getElementById('lightbox-backdrop');
 
-        // Función base para construir las tarjetas visuales (Mantiene tu hermosa estética)
+        // Función base para construir las tarjetas visuales
         function crearTarjetaFoto(nombreArchivo) {
             const tarjeta = document.createElement('div');
+            // Habilitamos el clic para abrir el Lightbox pasándole el nombre del archivo
+            tarjeta.setAttribute('onclick', `abrirLightbox('${nombreArchivo}')`);
             tarjeta.className = "bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group cursor-pointer";
 
             const contenedorImg = document.createElement('div');
             contenedorImg.className = "w-full h-64 overflow-hidden relative bg-gray-200";
 
             const img = document.createElement('img');
-            img.src = `fotos/${nombreArchivo}`; // Busca la foto en tu carpeta local
+            img.src = `fotos/${nombreArchivo}`; 
             img.alt = "Momento en el Merendero";
             img.className = "w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110";
 
+            // Capa oscura sutil con icono de lupa al pasar el mouse
             const overlay = document.createElement('div');
-            overlay.className = "absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300";
+            overlay.className = "absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white text-3xl font-light";
+            overlay.innerHTML = "🔍";
 
             contenedorImg.appendChild(img);
             contenedorImg.appendChild(overlay);
@@ -97,7 +106,6 @@
         // Función conectada a la API de GitHub para leer la carpeta dinámicamente
         async function cargarGaleriaAutomatica() {
             try {
-                // Le pedimos a GitHub el listado de archivos de la carpeta "fotos"
                 const respuesta = await fetch(`https://api.github.com/repos/${USUARIO_GITHUB}/${REPOSITORIO_GITHUB}/contents/fotos`);
                 
                 if (!respuesta.ok) {
@@ -106,13 +114,11 @@
 
                 const archivos = await respuesta.json();
 
-                // Filtramos el contenido: que sean archivos y que terminen en formato de imagen
                 const imagenes = archivos.filter(archivo => 
                     archivo.type === 'file' && 
                     /\.(jpg|jpeg|png|webp|gif)$/i.test(archivo.name)
                 );
 
-                // Si la carpeta está vacía, mostramos un aviso prolijo
                 if (imagenes.length === 0) {
                     contenedorGrilla.innerHTML = `
                         <div class="col-span-full text-center py-12 text-gray-400">
@@ -122,7 +128,6 @@
                     return;
                 }
 
-                // Limpiamos el contenedor e inyectamos las fotos encontradas
                 contenedorGrilla.innerHTML = "";
                 imagenes.forEach(foto => {
                     contenedorGrilla.appendChild(crearTarjetaFoto(foto.name));
@@ -136,6 +141,44 @@
                     </div>`;
             }
         }
+
+        // =================================================================
+        // ⚙️ FUNCIONES DEL LIGHTBOX (VISUALIZADOR)
+        // =================================================================
+        function abrirLightbox(nombreArchivo) {
+            // Le asignamos la ruta de la foto a la etiqueta de imagen grande
+            lightboxImg.src = `fotos/${nombreArchivo}`;
+            
+            // Quitamos la clase 'hidden' para mostrar la estructura
+            lightbox.classList.remove('hidden');
+            
+            // Animación suave de escala y opacidad
+            setTimeout(() => {
+                lightboxBox.classList.remove('scale-95', 'opacity-0');
+                lightboxBox.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Bloqueamos el scroll de la página de fondo
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarLightbox() {
+            // Animación de salida
+            lightboxBox.classList.remove('scale-100', 'opacity-100');
+            lightboxBox.classList.add('scale-95', 'opacity-0');
+            
+            // Escondemos todo tras terminar la animación y limpiamos la ruta
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightboxImg.src = '';
+            }, 250);
+            
+            // Devolvemos el scroll normal a la página
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar también si hacen clic en cualquier parte del fondo oscuro
+        lightboxBackdrop.addEventListener('click', cerrarLightbox);
 
         // Ejecutamos la carga automática al abrir la página
         cargarGaleriaAutomatica();

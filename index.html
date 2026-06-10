@@ -33,29 +33,27 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased pt-20">
 
-    <!-- BARRA SUPERIOR (MENÚ FLOTANTE) -->
-    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- BARRA SUPERIOR (MANTIENE SU LUGAR ARRIBA Y SOLO CON GALERÍA) -->
+    <header class="absolute top-0 left-0 w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 md:py-5 flex justify-between items-center">
             
-            <a href="#inicio" class="flex items-center gap-3 group">
-                <img src="./logo_merendero.png" alt="Logo Merendero Dejando Huellas" class="h-14 md:h-16 w-auto object-contain transition-transform group-hover:scale-105">
-                <div class="flex flex-col border-l-2 border-gray-200 pl-3">
-                    <span class="text-xs uppercase tracking-widest font-semibold text-gray-400 leading-none mb-1">Comunidad</span>
-                    <span class="text-xl md:text-2xl font-black tracking-tight text-gray-800 group-hover:text-green-600 transition-colors">
+            <a href="#inicio" class="flex items-center gap-4 group">
+                <img src="./logo_merendero.png" alt="Logo Merendero Dejando Huellas" class="h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105">
+                
+                <div class="flex flex-col border-l-[3px] border-gray-200 pl-4">
+                    <span class="text-sm md:text-base uppercase tracking-widest font-bold text-gray-400 leading-none mb-1">SOMOS</span>
+                    <span class="text-2xl md:text-4xl font-black tracking-tight text-gray-800 group-hover:text-green-600 transition-colors">
                         Dejando huellas
                     </span>
                 </div>
             </a>
             
-            <button id="menu-btn" class="block md:hidden text-gray-600 focus:outline-none p-2">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+            <div>
+                <a href="galeria.html" class="bg-emerald-600 text-white font-bold px-6 py-2.5 md:px-8 md:py-3 rounded-full hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 text-base md:text-xl inline-block">
+                    Galería
+                </a>
+            </div>
 
-            <nav id="menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md p-4 flex flex-col gap-4 text-center font-semibold md:static md:shadow-none md:p-0 md:flex md:flex-row md:gap-8 md:bg-transparent text-gray-600">
-                <a href="galeria.html" class="text-green-600 font-bold">Galería</a>
-            </nav>
         </div>
     </header>
 
@@ -66,7 +64,6 @@
         <main class="relative bg-gray-100 overflow-hidden min-h-[75vh] flex items-center">
             <img src="./Diseño sin título.png" alt="Collage de fotos Merendero Dejando Huellas" class="absolute inset-0 w-full h-full object-cover object-center opacity-90">
             <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 md:py-24 w-full">
-                <!-- Animación: fade-up (Sube suavemente al cargar) -->
                 <div class="w-full md:w-3/5 bg-white/70 backdrop-blur-md p-8 md:p-12 rounded-3xl shadow-2xl border border-white/50" data-aos="fade-up" data-aos-duration="1000">
                     <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
                         Bienvenidos a Nuestra <span class="text-green-600">Comunidad</span>
@@ -94,13 +91,12 @@
             <!-- CONTENEDOR DEL VIDEO PRINCIPAL -->
             <div class="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-gray-200/60 bg-black aspect-video mb-16" data-aos="zoom-in" data-aos-duration="1000">
                 <iframe src="https://drive.google.com/file/d/1RmuLf1WIId0v39CC5iYBC8-f-UFtYtRP/preview" class="w-full h-full" allow="autoplay" frameborder="0" allowfullscreen></iframe>
-
             </div>
 
             <!-- TÍTULO DE LOS PILARES -->
             <div class="text-center mb-10" data-aos="fade-up">
                 <h3 class="text-2xl md:text-3xl font-bold text-gray-800">
-                    Los pilares de nuestro trabajo
+                    Los pilares de trabajo
                 </h3>
                 <p class="text-gray-500 mt-2">Todo lo que logramos día a día se sostiene sobre estas bases fundamentales.</p>
             </div>
@@ -123,7 +119,7 @@
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">📚</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Educación</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Entregamos útiles escolares a más de 340 niños y brindamos clases de apoyo escolar en Lengua, Matemática e Inglés.
+                        Entregamos útiles escolares a más de 340 niños y brindamos clases de apoyo escolar en Lengua, Matemática, etc.
                     </p>
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
@@ -133,7 +129,7 @@
                     <div class="text-4xl mb-4 group-hover:scale-110 transition-transform w-fit">⚽</div>
                     <h4 class="text-xl font-bold text-gray-800 mb-2">Deporte</h4>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Funciona una escuelita de fútbol con entrenamientos y campeonatos para alejar a los chicos de situaciones de riesgo y fomentar valores.
+                        Funciona una escuelita de fútbol con entrenamientos y futuros campeonatos para alejar a los chicos de situaciones de riesgo y fomentar valores.
                     </p>
                     <p class="text-xs text-emerald-600 font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Ver más detalles ➔</p>
                 </div>
@@ -185,7 +181,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             
-            <!-- TARJETA 1 (Aparece primero) -->
+            <!-- TARJETA 1 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="100">
                 <div>
                     <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-2xl mb-6">❤️</div>
@@ -201,7 +197,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2 (Aparece un instante después) -->
+            <!-- TARJETA 2 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="300">
                 <div>
                     <div class="w-12 h-12 bg-orange-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🛒</div>
@@ -217,7 +213,7 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3 (Aparece al final) -->
+            <!-- TARJETA 3 -->
             <div class="bg-gray-100 rounded-3xl p-8 shadow-xl border border-gray-200/60 flex flex-col justify-between transition-transform hover:-translate-y-2 duration-300" data-aos="fade-up" data-aos-delay="500">
                 <div>
                     <div class="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-2xl mb-6">🤝</div>
@@ -255,7 +251,7 @@
                             <div>
                                 <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Coordinador</p>
                                 <p class="text-lg font-bold text-gray-700 leading-tight">Alberto Guirao</p>
-                                <a href="tel:+5491123456789" class="text-sm text-emerald-600 hover:text-emerald-700 font-medium hover:underline block mt-1">+54 9 261 653 3807</a>
+                                <a href="tel:+5492616533807" class="text-sm text-emerald-600 hover:text-emerald-700 font-medium hover:underline block mt-1">+54 9 261 653 3807</a>
                             </div>
                             <a href="https://wa.me/5492616533807" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-md flex-shrink-0">WhatsApp</a>
                         </div>
@@ -291,26 +287,24 @@
 
             <!-- Mapa -->
             <div class="w-full h-full min-h-[350px] md:min-h-[500px] relative" data-aos="fade-left" data-aos-duration="1000">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3041.576624313691!2d-68.69824602432857!3d-32.9878005735762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDU5JzE2LjEiUyA2OMKwNDEnNDQuNCJX!5e1!3m2!1ses!2sar!4v1780510762736!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full min-h-[350px] md:min-h-[500px] rounded-3xl shadow-xl border border-gray-200/60" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3041.576624313691!2d-68.69824602432857!3d-32.9878005735762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDU5JzE2LjEiUyA2OMKwNDEnNDQuNCJX!5e1!3m2!1ses!2sar!4v1780510762736!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full min-h-[350px] md:min-h-[500px] rounded-3xl shadow-xl border border-gray-200/60"></iframe>
             </div>
         </div>
     </section>
 
-
-    <div id="modal-pilares" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 md:p-8">
-        
+    <!-- MODAL DE PILARES (CON CORRECCIÓN DE ANCHO PARA MOBILE) -->
+    <div id="modal-pilares" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-3 md:p-8">
         <div id="modal-backdrop" class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity"></div>
         
-        <div id="modal-content-box" class="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl p-8 md:p-12 transform scale-95 opacity-0 transition-all duration-300">
-            
-            <button onclick="cerrarModal()" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors focus:outline-none">
+        <div id="modal-content-box" class="relative bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-3xl shadow-2xl p-6 md:p-12 transform scale-95 opacity-0 transition-all duration-300">
+            <button onclick="cerrarModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-100 hover:bg-red-50 rounded-full p-2 transition-colors focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
             <div id="modal-icono" class="text-5xl md:text-6xl mb-6"></div>
             <h3 id="modal-titulo" class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 border-b border-gray-100 pb-4"></h3>
             
-            <div id="modal-texto" class="text-gray-600 text-base md:text-lg leading-relaxed space-y-5 text-justify"></div>
+            <div id="modal-texto" class="text-gray-600 text-base md:text-lg leading-relaxed space-y-5 text-justify break-words"></div>
         </div>
     </div>
 
@@ -327,20 +321,7 @@
             offset: 100, 
         });
 
-        // 2. LÓGICA DEL MENÚ HAMBURGUESA
-        const menuBtn = document.getElementById('menu-btn');
-        const menu = document.getElementById('menu');
-
-        menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('#menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // 3. CARRUSEL DINÁMICO DE EMPRESAS
+        // 2. CARRUSEL DINÁMICO DE EMPRESAS
         const empresas = ["empresa1.png", "empresa2.png", "empresa3.png"];
         const carrusel = document.getElementById('carrusel-logos');
         
@@ -361,14 +342,14 @@
             });
         }
 
-        // 4. LÓGICA DEL MODAL DE LOS PILARES
+        // 3. LÓGICA DEL MODAL DE LOS PILARES
         const datosPilares = {
             'alimentacion': {
                 icono: '🍲',
                 titulo: 'Proyecto Alimentación',
                 texto: `
                     <p>Se ofrecían dos meriendas semanales (lunes y miércoles) compuestas por té y tortitas, y un almuerzo los sábados (menudo de pollo), para unos 35 niños.</p>
-                    <p>Hoy en dia ofrecemos 4 meriendas semanales, todas con leche (arroz con leche, chocolatada con tortitas, avena con leche, etc.).</p>
+                    <p>Hoy en día ofrecemos 4 meriendas semanales, todas con leche (arroz con leche, chocolatada con tortitas, avena con leche, etc.).</p>
                     <p>Almuerzos los sábados con carne de calidad (vacuna, pollo o cerdo, 10 kg), acompañada por fideos, lentejas, arroz o sémola.</p>
                 `
             },
@@ -377,7 +358,7 @@
                 titulo: 'Apoyo Educativo',
                 texto: `
                     <p class="font-bold text-gray-800">Creemos fervientemente que la educación es la única herramienta de movilidad social real.</p>
-                    <p>Más de 250 niños de nivel inicial, primario y secundario recibieron útiles escolares al inicio del ciclo lectivo 2025 y 2026</p>
+                    <p>Más de 250 niños de nivel inicial, primario y secundario recibieron útiles escolares al inicio del ciclo lectivo 2025 y 2026.</p>
                     <p>Equipo de tres docentes que realizan apoyo escolar a nuestros niños y jóvenes entre 6 y 21 años.</p>
                 `
             },
@@ -386,7 +367,7 @@
                 titulo: 'Escuelita de Deporte',
                 texto: `
                     <p class="font-bold text-gray-800">El deporte se considera fundamental para fomentar valores y mantener a los niños alejados de situaciones de riesgo como las adicciones.</p>
-                    <p>Actualmente contamos con una escuelita de futbol con dos profesores y tres dias de entrenamiento.</p>
+                    <p>Actualmente contamos con una escuelita de fútbol con dos profesores y tres días de entrenamiento.</p>
                     <p>Nos queda pendiente:</p>
                     <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3">
                         <li>Equipamiento: camisetas, botines, medias, camperas, pantalones.</li>
@@ -401,9 +382,9 @@
                 titulo: 'Operativos de Salud',
                 texto: `
                     <p class="font-bold text-gray-800">Prevenir es curar: acercamos la salud a quienes más la necesitan.</p>
-                    <p>Área en permanente desarrollo.  Equipo de atención odontológica. Se cubren urgencias puntuales que son derivados al Notti, se asiste en la compra de medicación y traslados.</p>
+                    <p>Área en permanente desarrollo. Equipo de atención odontológica. Se cubren urgencias puntuales que son derivados al Notti, se asiste en la compra de medicación y traslados.</p>
                     <p>El centro de salud más cercano se encuentra a dos barrios de distancia. Muchas familias carecen de recursos para trasladar a sus hijos al Hospital Notti por ello nos encargamos de lograr que sus padres los lleven cubriendo los gastos necesarios de traslado, alimentación mientras están internados los niños, medicación y estudios necesarios.</p>
-                    <p>Nuestro objetivo es aprovechar el salon construido para recibir profesionales de la salud </p>
+                    <p>Nuestro objetivo es aprovechar el salón construido para recibir profesionales de la salud:</p>
                     <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3">
                         <li>Médicos.</li>
                         <li>Odontólogos.</li>
@@ -416,8 +397,9 @@
                 titulo: 'Desarrollo Familiar',
                 texto: `
                     <p class="font-bold text-gray-800">No podemos ayudar a un niño sin brindarle herramientas a su familia para salir adelante.</p>
-                    <p>Grave falta de participación familiar que fue mejorando con el transcurrir del tiempo gracias a las entrevistas familiares que se implementaron.  La mayoría de los hogares están encabezados por madres solas atravesando situaciones de vulnerabilidad emocional y económica.</p>
-                    <p> Se gestionó con Diego Talquenca, docente del IUCE que sus estudiantes del ingreso elaboren proyectos vinculados a los desafíos ONG, elaborados a partir de los seis ejes del merendero y de esta manera acercar a sus estudiantes con sus proyectos al territorio. Año 2024, 2025 y 2026.</p>                `
+                    <p>Grave falta de participación familiar que fue mejorando con el transcurrir del tiempo gracias a las entrevistas familiares que se implementaron. La mayoría de los hogares están encabezados por madres solas atravesando situaciones de vulnerabilidad emocional y económica.</p>
+                    <p>Se gestionó con Diego Talquenca, docente del IUCE, que sus estudiantes del ingreso elaboren proyectos vinculados a los desafíos ONG, organizados a partir de los seis ejes del merendero y de esta manera acercar a sus estudiantes con sus proyectos al territorio. Año 2024, 2025 y 2026.</p>
+                `
             },
             'espacio': {
                 icono: '🏠',
